@@ -1,5 +1,6 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
+        <button class="text-white">Sign In</button>
                 <div class="flex justify-center space-x-0">
                     {#each Array(7).fill() as _, i}
                         <div class="flex flex-col items-center">
@@ -8,5 +9,19 @@
                         </div>
                     {/each}
                 </div>
+                <div>
+                    {#each data.programmingLanguages as pl}
+                            <div class="flex flex-row space-x-4">
+                                <div class="text-white">{pl.name}</div>
+                                <div class="text-white">{pl.paradigm}</div>
+                                <div class="text-white">{pl.typesystem}</div>
+                                <div class="text-white">{pl.platform}</div>
+                                                        
+                            </div>
+                    {/each}
+                </div>
         </div>
 </main>
+<script>
+    export let data
+</script>
