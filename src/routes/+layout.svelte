@@ -1,6 +1,7 @@
-<script>
-        import "../app.css";
-        import logo from '$lib/img/logo.png';
+<script >
+    import "../app.css";
+    import logo from '$lib/img/logo.png'
+    import { supabase } from "$lib/supabaseclient";
 </script>
 
 <nav class="bg-background p-4 rounded-lg text-white shadow-md">
@@ -10,7 +11,6 @@
                 <img src={logo} alt="Logo" class="h-16 w-auto mr-4"/>
                 <a href="/" class="text-lg font-semibold text-text px-3 py-2 rounded-lg hover:bg-neutral-900">Home</a>
                 <a href="/about" class="text-lg font-semibold text-text px-3 py-2 rounded-lg hover:bg-neutral-900">About</a>
-            </div>
         </div>
     </div>
 </nav>

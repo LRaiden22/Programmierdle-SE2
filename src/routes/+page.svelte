@@ -1,6 +1,5 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
-        <button class="text-white">Sign In</button>
                 <div class="flex justify-center space-x-0">
                     {#each Array(7).fill() as _, i}
                         <div class="flex flex-col items-center">
@@ -12,11 +11,11 @@
                 <div>
                     {#each data.programmingLanguages as pl}
                             <div class="flex flex-row space-x-4">
+                                <img src={pl.picture} class="h-20 w-20 object-contain"/>
                                 <div class="text-white">{pl.name}</div>
                                 <div class="text-white">{pl.paradigm}</div>
                                 <div class="text-white">{pl.typesystem}</div>
                                 <div class="text-white">{pl.platform}</div>
-                                                        
                             </div>
                     {/each}
                 </div>
