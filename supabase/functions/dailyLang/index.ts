@@ -3,20 +3,21 @@
 // This enables autocomplete, go to definition, etc.
 
 import { createClient } from 'npm:@supabase/supabase-js'
-const supabase = createClient("https://gclnmsblqhvahakeovtx.supabase.co/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjbG5tc2JscWh2YWhha2VvdnR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTIxMDI0NDIsImV4cCI6MjAyNzY3ODQ0Mn0.pVNeBh5BQmxrxNbk6J8yVQc74Q-hpCMSeKZIopBsApg")
-
+const supabase = createClient(Deno.env.get('SUPABASE_URL')??'', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '')
 Deno.serve(async (req) => {
   const pls = await supabase.from('programmingLanguages').select('*')
 
   let randomint = Math.floor(Math.random() * (pls.data?.length ?? 0));
   let id = pls.data?.[randomint]?.id
-  const yesterdayId = await supabase.from('dailyLang').select('langId').eq('date', new Date().toISOString())
+  const yesterdayId = await supabase.from('dailyLang').select('langId').eq('date', new Date(new Date().getTime()- 24*60*60*1000).toISOString().slice(0, 10))
   while(id === yesterdayId.data?.[0]?.langId) {
     randomint = Math.floor(Math.random() * (pls.data?.length ?? 0));
     id = pls.data?.[randomint]?.id
   }
 
-  await supabase.from('dailyLang').upsert({ langId: id })
+  const response = await supabase.from('dailyLang').upsert({ langId: id })
+  console.log(response)
+  console.log("hi")
   return new Response(
     JSON.stringify(id),
     { headers: { "Content-Type": "application/json" } },
