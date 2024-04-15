@@ -1,5 +1,6 @@
 import {derived, writable} from 'svelte/store';
 type lang = {
+    id: number;
     name: string;
     picture: string;
     paradigm: string;

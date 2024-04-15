@@ -1,21 +1,13 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
-                <Searchbar/>
-                <div>
-                    {#each data.programmingLanguages as pl}
-                            <div class="flex flex-row space-x-4">
-                                <img src={pl.picture} class="h-20 w-20 object-contain"/>
-                                <div class="text-white">{pl.name}</div>
-                                <div class="text-white">{pl.paradigm}</div>
-                                <div class="text-white">{pl.typesystem}</div>
-                                <div class="text-white">{pl.platform}</div>
-                            </div>
-                    {/each}
-                </div>
+            <Game/>
         </div>
-        <Searchbar/>
 </main>
 <script>
 	import Searchbar from '$lib/components/searchbar.svelte';
-    export let data
+    import Resultshow from '$lib/components/resultshow.svelte';
+	import { langs } from './stores';
+	import Game from '$lib/components/game.svelte';
+    export let data;
+    langs.set (data.programmingLanguages);
 </script>
