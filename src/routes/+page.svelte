@@ -1,6 +1,7 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
                 <Searchbar/>
+                <button on:click={test} class="btn btn-ghost text-xl">Test API</button>
                 <div>
                     {#each data.programmingLanguages as pl}
                             <div class="flex flex-row space-x-4">
@@ -16,6 +17,13 @@
         <Searchbar/>
 </main>
 <script>
+    const test =async () => {
+        let response = await supabase.functions.invoke('checkLang',{body:{id:7}})
+        console.log(response)
+    }
 	import Searchbar from '$lib/components/searchbar.svelte';
+	import { supabase } from '$lib/supabaseclient';
+	import { langs } from './stores';
     export let data
+    langs.set(data.programmingLanguages)
 </script>

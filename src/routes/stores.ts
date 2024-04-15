@@ -1,5 +1,6 @@
 import {derived, writable} from 'svelte/store';
 type lang = {
+    id: number;
     name: string;
     picture: string;
     paradigm: string;
@@ -11,3 +12,4 @@ type lang = {
 }
 export const langs = writable(<lang[]>[])
 export const langNames = derived(langs, $langs => $langs.map(lang => lang.name));
+export const loggedIn = writable(false);
