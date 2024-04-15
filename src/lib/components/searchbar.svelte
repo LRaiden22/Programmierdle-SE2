@@ -1,5 +1,5 @@
 <script>
-    import { supabase } from '$lib/supabaseclient';
+    import { supabase } from '$lib/supabaseclient.server.js';
     import { onMount } from 'svelte';
     let search = '';
     let results = [];
