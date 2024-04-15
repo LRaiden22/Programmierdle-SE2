@@ -36,8 +36,8 @@ jobs:
           output_location: "build/static" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          SUPABASE_PUBLIC: {{ secrets.SUPABASE_PUBLIC }}
-          SUPABASE_URL: {{secrets.SUPABASE_URL }}
+          SUPABASE_PUBLIC: ${{ secrets.SUPABASE_PUBLIC }}
+          SUPABASE_URL: ${{secrets.SUPABASE_URL }}
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
