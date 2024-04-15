@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-azure-swa';
 import sveltePreprocess from 'svelte-preprocess'; // Corrected import
 
 /** @type {import('@sveltejs/kit').Config} */
