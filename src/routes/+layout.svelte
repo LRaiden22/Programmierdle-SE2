@@ -1,8 +1,7 @@
 <script >
     import "../app.css";
     import logo from '$lib/img/logo.png'
-    import { supabase } from "$lib/supabaseclient";
-</script>
+    </script>
 
 <nav class="bg-background p-4 rounded-lg text-white shadow-md">
     <div class="container mx-auto">
