@@ -1,8 +1,5 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
-                <div class="flex justify-center space-x-0">
-                    
-                </div>
                 <Searchbar/>
                 <div>
                     {#each data.programmingLanguages as pl}
@@ -16,6 +13,7 @@
                     {/each}
                 </div>
         </div>
+        <Searchbar/>
 </main>
 <script>
 	import Searchbar from '$lib/components/searchbar.svelte';

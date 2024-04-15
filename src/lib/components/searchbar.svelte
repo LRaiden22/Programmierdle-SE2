@@ -1,5 +1,5 @@
 <script>
-    import { supabase } from '$lib/supabaseclient';
+    import { supabase } from '$lib/supabaseclient.server.js';
     import { onMount } from 'svelte';
     let search = '';
     let results = [];
@@ -57,10 +57,10 @@
             </svg>
         </div>
     </div>
-    <ul class="list-reset bg-gray-800 text-white">
+    <ul class="list-reset bg-neutral-900 text-white">
         {#each results as result (result.id)}
             <li class="mb-2">
-                <a href="#" on:click|preventDefault={() => { search = result.name; selectedId = result.id; results = []; sendIdToBackend(); }} class="block p-2 rounded-md hover:bg-gray-700 text-white">{result.name}</a>
+                <a href="#" on:click|preventDefault={() => { search = result.name; selectedId = result.id; results = []; sendIdToBackend(); }} class="block p-2 rounded-md hover:bg-neutral-900 text-white">{result.name}</a>
             </li>
         {/each}
     </ul>
