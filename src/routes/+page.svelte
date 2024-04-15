@@ -1,5 +1,6 @@
 <main class="flex flex-col items-center justify-center h-screen w-full">
         <div>
+                <Searchbar/>
                 <div>
                     {#each data.programmingLanguages as pl}
                             <div class="flex flex-row space-x-4">
@@ -16,6 +17,5 @@
 </main>
 <script>
 	import Searchbar from '$lib/components/searchbar.svelte';
-
     export let data
 </script>
