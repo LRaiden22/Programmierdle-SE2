@@ -1,4 +1,4 @@
-<main class="flex flex-col items-center justify-center h-screen w-full">
+<main class="flex flex-col items-center justify-center h-full w-full">
         <div>
                 <Searchbar/>
                 <button on:click={test} class="btn btn-ghost text-xl">Test API</button>

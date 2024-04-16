@@ -1,6 +1,9 @@
 <script>
 	import logo from '$lib/img/logo.png';
 	import { loggedIn } from '../../routes/stores';
+	const handleBlur = () => {
+		document.querySelector('details')?.removeAttribute('open');
+	};
 </script>
 
 <div class="navbar bg-background">
@@ -38,11 +41,11 @@
 					</summary>
 				<ul class="p-2 bg-background rounded-t-none">
 					{#if $loggedIn}
-						<li><a href="/profile" >Profile</a></li>
-						<li><a href="/profile" >Profile</a></li>
+						<li><a on:click={handleBlur} href="/profile" >Profile</a></li>
+						<li><a on:click={handleBlur} href="/profile" >Profile</a></li>
 					{:else}
-						<li><a href="/login" >Log In</a></li>
-						<li><a href="/signup" >Sign Up</a></li>
+						<li><a on:click={handleBlur} href="/login" >Log In</a></li>
+						<li><a on:click={handleBlur} href="/signup" >Sign Up</a></li>
 					{/if}
 				</ul>
 				</details>
