@@ -8,7 +8,6 @@
     let selected = null;
     export let onSubmission = () => {};
 
-    // Create a local variable for submitted guesses
     let submittedGuesses = [];
 
     let filteredData = [];
@@ -18,7 +17,15 @@
 </script>
 
 <div class="relative">
-    <input bind:value={search} type="text" placeholder="Search" class="input input-bordered w-full" />
+    <input bind:value={search} type="text" placeholder="Search" class="input input-bordered w-full" 
+        on:keydown={(e) => {
+            if (e.key === 'Enter' && filteredData.length > 0) {
+                onSubmission(filteredData[0]);
+                submittedGuesses = [...submittedGuesses, filteredData[0].name];
+                search = '';
+            }
+        }}
+    />
     {#if search}
         <ul class="mt-2 rounded shadow">
             {#each filteredData as item (item.id)}
