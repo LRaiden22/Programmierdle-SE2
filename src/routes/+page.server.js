@@ -1,7 +1,5 @@
-import { supabase } from "$lib/supabaseclient";
-
-export async function load(){
-    const{data}= await supabase.from("programmingLanguages").select("*")
+export async function load({locals}){
+    const {data} = locals.supabase.from("programmingLanguages").select("*")
     return{
         programmingLanguages:data ?? []
     }

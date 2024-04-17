@@ -14,13 +14,17 @@ Deno.serve(async (req) => {
   }
   const json = await req.json();
   const id = json.id;
+  let date = new Date().toDateString();
+  if(json.date){
+    date = json.date;
+  }
 
   const selectedLang = await supabase.from("programmingLanguages").select("*")
     .eq("id", id);
   console.log(selectedLang);
   const correctLangId = await supabase.from("dailyLang").select("langId").eq(
     "date",
-    new Date().toDateString(),
+    date,
   );
   const correctLang = await supabase.from("programmingLanguages").select("*")
     .eq("id", correctLangId.data?.[0]?.langId);
