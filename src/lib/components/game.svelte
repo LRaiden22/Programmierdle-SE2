@@ -3,6 +3,7 @@
     import Resultshow from "./resultshow.svelte";
     import Searchbar from "./searchbar.svelte";
     import { supabase } from "$lib/supabaseclient";
+	import Propertyheaders from './PropertyHeaders.svelte';
 
     const resultarray = writable([]);
     let submissionarray = [];
@@ -39,6 +40,11 @@
 {#if searching} 
 <span class="loading loading-dots loading-lg"></span>
 {/if}
+
+{#if $resultarray.length > 0}
+    <Propertyheaders/>
+{/if}
+
 {#each { length: $resultarray.length } as _, i}
     {@const reverseIndex = $resultarray.length - 1 - i}
     {@const result = $resultarray[reverseIndex]}
