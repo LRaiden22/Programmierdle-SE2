@@ -1,9 +1,16 @@
 <script>
 	import logo from '$lib/img/logo.png';
 	import { loggedIn } from '../../routes/stores';
+	export let supabase
+	export let session
 	const handleBlur = () => {
 		document.querySelector('details')?.removeAttribute('open');
 	};
+	const signout = () => {
+		handleBlur()
+		supabase.auth.signOut();
+	};
+
 </script>
 
 <div class="navbar bg-background">
@@ -40,12 +47,12 @@
 						</svg>
 					</summary>
 				<ul class="p-2 bg-background rounded-t-none">
-					{#if $loggedIn}
+					{#if session}
 						<li><a on:click={handleBlur} href="/profile" >Profile</a></li>
-						<li><a on:click={handleBlur} href="/profile" >Profile</a></li>
+						<li><a on:click={signout} href="/" >Sign Out</a></li>
 					{:else}
 						<li><a on:click={handleBlur} href="/login" >Log In</a></li>
-						<li><a on:click={handleBlur} href="/signup" >Sign Up</a></li>
+						<li><a on:click={handleBlur } href="/signup" >Sign Up</a></li>
 					{/if}
 				</ul>
 				</details>

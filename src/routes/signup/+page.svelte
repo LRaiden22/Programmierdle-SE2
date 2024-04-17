@@ -9,6 +9,7 @@
                 <p class="">Want to learn more about the possibilties that an account opens for you? <a href="/moreinfo" class="link">click!</a></p>
 			</div>
 			<div class="flex flex-col bg-background p-10 rounded-md md:w-2/3 w-full gap-2">
+				<form action="?/signup"method="POST" class="flex flex-col w-full gap-2">
 				<label class="input input-bordered flex items-center gap-2">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +22,7 @@
 							d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
 						/></svg
 					>
-					<input type="text" class="grow" placeholder="Email" />
+					<input type="email" name="email" class="grow" placeholder="Email" />
 				</label>
 				<label class="input input-bordered flex items-center gap-2">
 					<svg
@@ -35,13 +36,14 @@
 							clip-rule="evenodd"
 						/></svg
 					>
-					<input type="password" class="grow" placeholder="●●●●●●●●●●" />
+					<input type="password" name="password" class="grow" placeholder="●●●●●●●●●●" />
 				</label>
                 <div class="flex justify-between">
 					<p class="text-sm text-neutral-400">Already have an Account? <a class="link hover:text-text text-primary" href="/login">Log In!</a></p>
 					<a class="text-primary hover:text-text" href="/resetpassword">Forgot password?</a>
                 </div>
                     <button class="btn btn-primary mt-20">Sign Up</button>
+				</form>
                 <div class="divider">OR</div>
                 <button on:click={logInWithGithub} class="btn">
                 Sign in With Github
