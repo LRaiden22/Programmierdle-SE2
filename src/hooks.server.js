@@ -8,11 +8,15 @@ export async function handle({ event, resolve }) {
     cookies: {
       get: (key) => event.cookies.get(key),
       set: (key, value, options) => {
-        event.cookies.set(key, value, { ...options, secure: false, httpOnly: false, path: '/' });
+        event.cookies.set(key, value, { ...options, path: '/' });
       },
       remove: (key, options) => {
         event.cookies.delete(key, { ...options, path: '/' });
       }
+    },
+    cookieOptions:{
+      secure: false,
+      httpOnly: false,
     }
   });
   // @ts-ignore
