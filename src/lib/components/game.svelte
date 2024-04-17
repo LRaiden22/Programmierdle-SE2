@@ -3,7 +3,7 @@
     import Resultshow from "./resultshow.svelte";
     import Searchbar from "./searchbar.svelte";
     import { supabase } from "$lib/supabaseclient";
-	import Propertyheaders from './PropertyHeaders.svelte';
+	import Propertyheaders from './propertyheaders.svelte';
 
     const resultarray = writable([]);
     let submissionarray = [];
