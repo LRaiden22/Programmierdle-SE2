@@ -16,7 +16,6 @@
 					invalidate('supabase:auth')
 				}
 		})
-		checkPath()
 		return () => subscription.unsubscribe()
 	})
 </script>
