@@ -5,6 +5,7 @@
     import Searchbar from "./searchbar.svelte";
     import { supabase } from "$lib/supabaseclient";
 	import Propertyheaders from './propertyheaders.svelte';
+	import { onMount } from 'svelte';
 
 	let found = false;
 	let resultarray = writable([]);
