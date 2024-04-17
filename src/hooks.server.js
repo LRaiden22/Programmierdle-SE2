@@ -15,8 +15,8 @@ export async function handle({ event, resolve }) {
       }
     },
     cookieOptions:{
-      secure: false,
-      httpOnly: false,
+      sameSite: 'none',
+      secure: true
     }
   });
   // @ts-ignore
