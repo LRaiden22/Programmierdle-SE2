@@ -1,9 +1,10 @@
 <script>
-	import { writable } from 'svelte/store';
-	import Resultshow from './resultshow.svelte';
-	import Searchbar from './searchbar.svelte';
-	import { supabase } from '$lib/supabaseclient';
-	import { onMount } from 'svelte';
+
+    import { writable } from 'svelte/store';
+    import Resultshow from "./resultshow.svelte";
+    import Searchbar from "./searchbar.svelte";
+    import { supabase } from "$lib/supabaseclient";
+	import Propertyheaders from './propertyheaders.svelte';
 
 	let found = false;
 	let resultarray = writable([]);
@@ -60,6 +61,11 @@
 {#if searching}
 	<span class="loading loading-dots loading-lg"></span>
 {/if}
+
+{#if $resultarray.length > 0}
+    <Propertyheaders/>
+{/if}
+
 {#each { length: $resultarray.length } as _, i}
 	{@const reverseIndex = $resultarray.length - 1 - i}
 	{@const result = $resultarray[reverseIndex]}

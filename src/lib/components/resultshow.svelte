@@ -1,7 +1,4 @@
 <script>
-	import { fade } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
-
 	export let result;
 	export let submission;
 
@@ -29,27 +26,20 @@
 </script>
 
 {#if submission}
-	<div class="flex space-x-4">
+	<div class="flex space-x-4 items-center justify-center">
 		<div
-			transition:fade={{ delay: 100, duration: 500, easing: cubicOut }}
-			class={`w-32 h-32 border-2 rounded ${checkCorrectPic(result.data.correct)} flex items-center justify-center`}
-		>
-			<img
-				src={submission.picture}
-				alt={submission.name}
-				class="w-full h-full object-cover rounded"
-			/>
+            class={`w-32 h-32 border-2 rounded ${checkCorrectPic(result.data.correct)} flex items-center justify-center relative group`}
+        >
+            <img
+                src={submission.picture}
+                alt={submission.name}
+                class="w-full h-full object-cover rounded"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-50 text-white font-bold flex items-center justify-center hidden group-hover:flex">
+                {submission.name}
+            </div>
 		</div>
 		<div
-			transition:fade={{ delay: 200, duration: 500, easing: cubicOut }}
-			class={`w-32 h-32 border-2 rounded ${checkCorrect(result.data.correct)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
-		>
-			<p class="text-xs sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
-				{submission.name}
-			</p>
-		</div>
-		<div
-			transition:fade={{ delay: 300, duration: 500, easing: cubicOut }}
 			class={`w-32 h-32 border-2 rounded ${checkValue(result.data.paradigm)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
 		>
 			<p class="text-xs sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
@@ -57,7 +47,6 @@
 			</p>
 		</div>
 		<div
-			transition:fade={{ delay: 400, duration: 500, easing: cubicOut }}
 			class={`w-32 h-32 border-2 rounded ${checkValue(result.data.platform)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
 		>
 			<p class="text-xs sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
@@ -65,7 +54,6 @@
 			</p>
 		</div>
 		<div
-			transition:fade={{ delay: 500, duration: 500, easing: cubicOut }}
 			class={`w-32 h-32 border-2 rounded ${checkValue(result.data.typesystem)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
 		>
 			<p class="text-xs sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
@@ -73,7 +61,6 @@
 			</p>
 		</div>
 		<div
-			transition:fade={{ delay: 600, duration: 500, easing: cubicOut }}
 			class={`w-32 h-32 border-2 rounded ${checkValue(result.data.purpose)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
 		>
 			<p class="text-xs sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
@@ -81,7 +68,6 @@
 			</p>
 		</div>
 		<div
-			transition:fade={{ delay: 700, duration: 500, easing: cubicOut }}
 			class={`w-32 h-32 border-2 rounded ${checkReleaseYear(result.data.releaseyear)} flex items-center justify-center text-lg font-bold text-center overflow-hidden`}
 		>
 			{#if result.data.releaseyear === 2}
@@ -121,7 +107,7 @@
 					/>
 				</svg>
 			{/if}
-            <p>{submission.releaseyear}</p>
+			<p>{submission.releaseyear}</p>
 		</div>
 	</div>
 {/if}
