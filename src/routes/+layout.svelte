@@ -19,14 +19,6 @@
 		checkPath()
 		return () => subscription.unsubscribe()
 	})
-	const checkPath = async()=>{
-		if(!session){
-			if(!publicRoutes.includes(window.location.pathname)){
-				await goto('/login?error=no-session')
-			}
-		}
-	
-	}
 </script>
 
 <div class="flex flex-col h-screen">

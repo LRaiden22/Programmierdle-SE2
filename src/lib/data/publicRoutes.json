@@ -3,6 +3,7 @@
     "/about",
     "/contact",
     "/login",
+    "/signup",
     "/auth/callback",
     "/auth/confirm",
     "/date",
