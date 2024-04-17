@@ -8,7 +8,7 @@ export async function handle({ event, resolve }) {
     cookies: {
       get: (key) => event.cookies.get(key),
       set: (key, value, options) => {
-        event.cookies.set(key, value, { ...options, path: '/' });
+        event.cookies.set(key, value, { ...options, secure: false, httpOnly: false, path: '/' });
       },
       remove: (key, options) => {
         event.cookies.delete(key, { ...options, path: '/' });

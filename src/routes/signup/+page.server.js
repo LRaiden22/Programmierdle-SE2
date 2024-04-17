@@ -8,6 +8,7 @@ export const actions = {
             email,
             password
         })
+        locals.session = session;
         console.log(error)
         if (error) {
             return {
