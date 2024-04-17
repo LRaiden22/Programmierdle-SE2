@@ -7,14 +7,14 @@
 	import Propertyheaders from './propertyheaders.svelte';
 	import { onMount } from 'svelte';
 
-	let found = false;
+	let found = "";
 	let resultarray = writable([]);
 	let submissionarray = writable([]);
 	onMount(() => {
         if(localStorage.getItem('dailyLangDate')!==new Date().toDateString()){
             localStorage.setItem('submissionarray', JSON.stringify([]));
             localStorage.setItem('resultarray', JSON.stringify([]));
-            localStorage.setItem('found', false)
+            localStorage.setItem('found', "")
         }
         found = localStorage.getItem('found')
 		const storedSubmissionArray = localStorage.getItem('submissionarray');
