@@ -11,8 +11,11 @@
 		if (error) console.log(error);
 		else console.log(data);
 	};
+	export let form
 </script>
-
+{#if form?.error}
+	<div class="alert alert-error">{form?.error}</div>
+{/if}
 <div class="h-full flex items-center justify-center w-full">
 	<div class="h-4/5 grow flex items-center justify-center w-full">
 		<div

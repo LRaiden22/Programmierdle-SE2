@@ -1,18 +1,22 @@
+import { redirect, fail } from '@sveltejs/kit'
+
+
 export const actions = {
     login: async ({request, cookies, locals}) => {
-        const data = await request.formData()
-        const email = data.get('email')
-        const password = data.get('password')
+        const formdata = await request.formData()
+        const email = formdata.get('email')
+        const password = formdata.get('password')
         
-        const {user, session, error} = await locals.supabase.auth.signInWithPassword({
+        const {data, error} = await locals.supabase.auth.signInWithPassword({
             email,
             password
         })
         if (error) {
-            return {
-                status: 401,
-                body: error.message
-            }
+            return fail(401, {
+                error: error.message
+        })
+        }else{
+            redirect(303, '/')
         }
     }
 }
