@@ -1,6 +1,4 @@
 <script>
-    import PropertyHeaders from './PropertyHeaders.svelte';
-
 	export let result;
 	export let submission;
 
