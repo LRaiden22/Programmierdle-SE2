@@ -11,15 +11,11 @@ export async function handle({ event, resolve }) {
         event.cookies.set(key, value, { ...options, path: '/',sameSite: 'none',
       secure: true });
       },
-      remove: (key, options) => {
-        event.cookies.delete(key, { ...options, path: '/',sameSite: 'none',
-      secure: true });
-      }
     },
     cookieOptions:{
       sameSite: 'none',
       secure: true,
-      domain: 'https://www.codle.de'
+      domain:"www.codle.de"
     }
   });
   // @ts-ignore
