@@ -21,6 +21,7 @@
 			</a>
 			<ul class="menu menu-horizontal">
 				<li><a href="/about">About</a></li>
+				<li><a href="/imprint">Imprint</a></li>
 				<li><a href="/date">Change Date</a></li>
 			</ul>
 		</div>

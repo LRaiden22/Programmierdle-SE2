@@ -2,7 +2,7 @@
     import example1 from '$lib/img/example1.png';
     import example2 from '$lib/img/example2.png';
     import { onMount } from 'svelte';
-    export let close;
+    export let closeHelp;
     let hours = 0;
     let minutes = 0;
     let seconds = 0;
@@ -12,7 +12,7 @@
             const now = new Date();
             const tomorrow = new Date(now);
             tomorrow.setDate(tomorrow.getDate() + 1);
-            tomorrow.setHours(0, 0, 0, 0);
+            tomorrow.setHours(2, 0, 0, 0);
             const diff = tomorrow - now;
             hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             minutes = Math.floor((diff / 1000 / 60) % 60);
@@ -34,7 +34,7 @@
             <div class="card card-side bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title">How to play Codle?</h2>
-                    <p>Guess today's programming language. It changes every 24h.</p>
+                    <p>Guess today's programming language. It changes every 24h at 2 AM.</p>
                     <br>
                     <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
                         <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
@@ -106,7 +106,7 @@
                         </div>
                         <br>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-secondary" on:click={close()}>Close</button>
+                            <button class="btn btn-secondary" on:click={closeHelp()}>Close</button>
                         </div>
                 </div>
             </div>
