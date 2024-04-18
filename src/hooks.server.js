@@ -18,7 +18,8 @@ export async function handle({ event, resolve }) {
     },
     cookieOptions:{
       sameSite: 'none',
-      secure: true
+      secure: true,
+      domain: 'https://www.codle.de'
     }
   });
   // @ts-ignore
