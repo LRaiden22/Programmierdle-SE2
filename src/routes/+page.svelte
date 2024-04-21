@@ -4,7 +4,6 @@
         <Iconbar/>
     </div>
     <Game/>
-    <p>{data.session?.access_token}</p>
 </main>
 <script>
     import { langs } from './stores';
